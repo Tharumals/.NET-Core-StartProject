@@ -34,13 +34,15 @@ namespace HList.Repository
         public async Task<T> Get(Expression<Func<T, bool>> expression, List<string> includes = null)
         {
             IQueryable<T> query = _db;
+
             if (includes != null)
             {
-                foreach(var includeProperty in includes)
+                foreach (var includePropery in includes)
                 {
-                    query = query.Include(includeProperty);
+                    query = query.Include(includePropery);
                 }
             }
+
             return await query.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 

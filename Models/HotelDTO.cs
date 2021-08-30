@@ -26,7 +26,7 @@ namespace HList.Models
 
     public class HotelDTO : CreateCountryDTO
     {
-        public int hotelID { get; set; } 
+        public int HotelID { get; set; } 
 
         public CountryDTO Country { get; set; }
     }
